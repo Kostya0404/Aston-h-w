@@ -57,11 +57,9 @@ public class Lesson_3 {
 
     //Задание 5
     public static boolean checkSumLimits(int a, int b) {
-        System.out.println("Задание 5");
         int sum = a + b;
-        if (sum >= 10 && sum <= 20) return true;
-        else return false;
-    }
+        return sum >= 10 && sum <= 20;
+    };
 
     //Задание 6
     public static void positiveOrNegative(int a) {
@@ -70,10 +68,8 @@ public class Lesson_3 {
     }
 
     //Задание 7
-    public static boolean positiveOrNegative1(int a) {
-        System.out.println("Задание 7");
-        if (a < 0) return true;
-        return false;
+    public static boolean positiveOrNegative1(int a) {;
+        return a < 0;
     }
 
     //Задание 8
@@ -86,9 +82,13 @@ public class Lesson_3 {
 
     //Задание 9
     public static boolean leapYear(int year) {
-        System.out.println("Задание 9");
-        if (!(year % 4 == 0) || ((year % 100 == 0) && !(year % 400 == 0))) return true;
-        else return false;
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                return year % 400 == 0;
+            }
+            return true;
+        }
+        return false;
     }
 
     //Задание 10
