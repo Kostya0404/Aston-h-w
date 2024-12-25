@@ -1,6 +1,6 @@
-package org.example;
+package Lesson_3;
 
-public class Lesson_7 {
+public class Lesson_3 {
     public static void main(String[] args) {
         printThreeWords();
         checkSumSign();
@@ -27,7 +27,7 @@ public class Lesson_7 {
 
     //Задание 2
     public static void checkSumSign() {
-        int a = 5, b = 3;
+        int a = 4, b = 6;
         int c = a + b;
         if (c >= 0) System.out.println("Сумма положительная");
         else System.out.println("Сумма отрицательная");
@@ -35,10 +35,10 @@ public class Lesson_7 {
 
     //Задание 3
     public static void printColor() {
-        int value = 999;
+        int value = 69;
         if (value <= 0) {
             System.out.println("Красный");
-        } else if (value <= 100) {
+        } else if (value > 0 && value <= 100) {
             System.out.println("Желтый");
         } else {
             System.out.println("Зеленый");
@@ -149,8 +149,6 @@ public class Lesson_7 {
 
     //Задание 14
     public static void twoArguments(int len, int initialValue) {
-
-        Дмитрий Конкурентоспособность, [23.12.2024 00:03]
         int[] arr = new int[len];
         for (int i = 0; i < len; i++) {
             arr[i] = initialValue;
