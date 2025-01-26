@@ -16,5 +16,13 @@ public class WordsCounter {
         for (Map.Entry<String, Integer> e : wordCount.entrySet()) {
             System.out.println(e.getKey() + " " + e.getValue());
         }
+        System.out.println("\nСписок уникальных слов:");
+        printUniqueWords(arr);
+    }
+    public static void printUniqueWords(String[] arr) {
+        Set<String> uniqueWords = new HashSet<>(Arrays.asList(arr));
+        for (String word : uniqueWords) {
+            System.out.println(word);
+        }
     }
 }
