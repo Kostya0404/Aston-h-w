@@ -7,22 +7,19 @@ public class WordsCounter {
         String[] arr = {"Автомобиль", "Насос", "Лестница", "Кочерга", "Кровать", "Кочерга", "Окно", "Автомобиль", "Кровать", "Культиватор", "Кровать", "Кочерга", "Окно", "Жалюзи", "Насос", "Компьютер", "Жалюзи", "Расческа", "Картина", "Картина", "Картина", "Картина", "Картина"};
 
         Map<String, Integer> wordCount = new HashMap<>();
-
         for (String word : arr) {
             wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
         }
-
         System.out.println("Cлова и их количество");
         for (Map.Entry<String, Integer> e : wordCount.entrySet()) {
             System.out.println(e.getKey() + " " + e.getValue());
         }
-        System.out.println("\nСписок уникальных слов:");
-        printUniqueWords(arr);
-    }
-    public static void printUniqueWords(String[] arr) {
-        Set<String> uniqueWords = new HashSet<>(Arrays.asList(arr));
-        for (String word : uniqueWords) {
-            System.out.println(word);
+
+        System.out.println("\nУникальные слова:");
+        for (Map.Entry<String, Integer> entry : wordCount.entrySet()) {
+            if (entry.getValue() == 1) {
+                System.out.println(entry.getKey());
+            }
         }
     }
 }
