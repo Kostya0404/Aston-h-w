@@ -1,6 +1,7 @@
-package Lesson_15;
+package Lesson_18;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,11 +10,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Epic("MTS Website Tests")
+@Feature("Main Page Features")
 public class MtsTest {
     private WebDriver driver;
     private MainPage mainPage;
 
     @BeforeEach
+    @Step("Настройка драйвера и открытие главной страницы MTS")
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -24,6 +28,9 @@ public class MtsTest {
     }
 
     @Test
+    @Story("Verify Block Title")
+    @Description("Тест проверяет заголовок блока на главной странице.")
+    @Severity(SeverityLevel.CRITICAL)
     public void testBlockTitle() {
         String expectedTitle = "Онлайн пополнение\n" + "без комиссии";
         String actualTitle = mainPage.getBlockTitle();
@@ -31,6 +38,9 @@ public class MtsTest {
     }
 
     @Test
+    @Story("Verify Payment Logos")
+    @Description("Тест проверяет отображение логотипов платежных систем на главной странице.")
+    @Severity(SeverityLevel.NORMAL)
     public void testPaymentLogos() {
         assertTrue(mainPage.isVisaLogoDisplayed(), "Логотип Visa не отображается!");
         assertTrue(mainPage.isVerifiedByVisaLogoDisplayed(), "Логотип Verified By Visa не отображается!");
@@ -40,6 +50,9 @@ public class MtsTest {
     }
 
     @Test
+    @Story("Verify Details Link")
+    @Description("Тест проверяет работоспособность ссылки 'Подробнее'.")
+    @Severity(SeverityLevel.NORMAL)
     public void testDetailsLink() {
         mainPage.clickDetailsLink();
         String currentUrl = driver.getCurrentUrl();
@@ -47,6 +60,9 @@ public class MtsTest {
     }
 
     @Test
+    @Story("Verify Continue Button")
+    @Description("Тест проверяет доступность кнопки 'Продолжить' после ввода данных.")
+    @Severity(SeverityLevel.CRITICAL)
     public void testContinueButton() {
         mainPage.enterPhoneNumber("297777777");
         mainPage.enterAmount("10");
@@ -55,6 +71,9 @@ public class MtsTest {
     }
 
     @Test
+    @Story("Verify Placeholders")
+    @Description("Тест проверяет плейсхолдеры полей ввода на разных страницах.")
+    @Severity(SeverityLevel.NORMAL)
     public void testPlaceholders() {
         assertEquals("Номер телефона", mainPage.getPhoneNumberFieldPlaceholder(), "Плейсхолдер поля 'Номер телефона' не совпадает!");
         assertEquals("Сумма", mainPage.getAmountPlaceholder(), "Плейсхолдер поля 'Сумма' не совпадает!");
@@ -80,6 +99,9 @@ public class MtsTest {
     }
 
     @Test
+    @Story("Verify Iframe Content")
+    @Description("Тест проверяет содержимое iframe после нажатия кнопки 'Продолжить'.")
+    @Severity(SeverityLevel.CRITICAL)
     public void testIframe() {
         mainPage.enterPhoneNumber("297777777");
         mainPage.enterAmount("10");
@@ -100,9 +122,11 @@ public class MtsTest {
     }
 
     @AfterEach
+    @Step("Закрытие браузера")
     public void tearDown() {
         if (driver != null) {
             driver.quit();
         }
     }
+
 }
