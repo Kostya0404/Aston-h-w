@@ -51,7 +51,7 @@ public class MtsTest {
 
     @Test
     @Story("Verify Details Link")
-    @Description("Тест проверяет работоспособность ссылки 'Подробнее'.")
+    @Description("Тест проверяет работоспособность ссылки 'Подробнее о сервисе'.")
     @Severity(SeverityLevel.NORMAL)
     public void testDetailsLink() {
         mainPage.clickDetailsLink();
@@ -61,7 +61,7 @@ public class MtsTest {
 
     @Test
     @Story("Verify Continue Button")
-    @Description("Тест проверяет доступность кнопки 'Продолжить' после ввода данных.")
+    @Description("Тест проверяет доступность кнопки 'Продолжить'.")
     @Severity(SeverityLevel.CRITICAL)
     public void testContinueButton() {
         mainPage.enterPhoneNumber("297777777");
@@ -72,7 +72,7 @@ public class MtsTest {
 
     @Test
     @Story("Verify Placeholders")
-    @Description("Тест проверяет плейсхолдеры полей ввода на разных страницах.")
+    @Description("Тест проверяет плейсхолдеры.")
     @Severity(SeverityLevel.NORMAL)
     public void testPlaceholders() {
         assertEquals("Номер телефона", mainPage.getPhoneNumberFieldPlaceholder(), "Плейсхолдер поля 'Номер телефона' не совпадает!");
@@ -100,7 +100,7 @@ public class MtsTest {
 
     @Test
     @Story("Verify Iframe Content")
-    @Description("Тест проверяет содержимое iframe после нажатия кнопки 'Продолжить'.")
+    @Description("Тест проверяет процесс оплаты.")
     @Severity(SeverityLevel.CRITICAL)
     public void testIframe() {
         mainPage.enterPhoneNumber("297777777");
